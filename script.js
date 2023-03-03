@@ -115,11 +115,11 @@ const cats= [
 ];
 
 (function () {
-    const petNames = document.getElementsByClassName("cat-name") 
-    const petImage = document.getElementsByClassName("pet-pic") 
-    const favFoods = document.getElementsByClassName("fav-foods")
-    const birthYear = document.getElementsByClassName("birth-year")
-    const species = document.getElementsByClassName("species")
+    const petNames = document.getElementsByClassName("card-title") //cat-name
+    const petImage = document.getElementsByClassName("card-picture") //pet-pic
+    const favFoods = document.getElementsByClassName("fav-foods") //fav-foods
+    const birthYear = document.getElementsByClassName("birth-year") //birth-year
+    const species = document.getElementsByClassName("species") //species
 
     for (let i = 0; i < cats.length; i++) {
         petNames[i].innerText = cats[i].name;
@@ -130,3 +130,21 @@ const cats= [
     }
 })();
 
+
+const showMenu = (toggleId, navId)=>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
+    if(toggle && nav){
+      toggle.addEventListener('click', ()=>{
+        nav.classList.toggle('show')
+        toggle.classList.toggle('bx-x')
+      })
+    }
+}
+showMenu('header-toggle','nav-menu')
+const navLink = document.querySelectorAll('.nav__link');   
+function linkAction(){
+navLink.forEach(n => n.classList.remove('active'));
+this.classList.add('active');
+}
+navLink.forEach(n => n.addEventListener('click', linkAction));
