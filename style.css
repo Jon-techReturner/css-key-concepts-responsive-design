@@ -8,6 +8,7 @@
 
 body {
     background-color: var(--light);
+    font-size: 1.5rem;
 }
 
 .card {
@@ -24,9 +25,36 @@ img {
     justify-content: space-evenly;
 }
 
-h1 {
-    font-size: 2.25rem;
+
+/* On screens that are 700px, set the font size larger */
+@media screen and (min-width: 700px) {
+    body {
+      font-size: 1.5rem;
+      background-color: var(--dark);
+      color: white;
+    }
 }
-p {
-    font-size: 0.75rem;
+/* On screens that are 1000px , set the font size larger */
+@media screen and (min-width: 1000px) {
+    body {
+      font-size: 1.5rem;
+      background-color: var(--light);
+      color: var(--dark);
+    }
 }
+/* On screens that are min-width 375px for mobile  , ipsum info hidden */
+@media (min-width: 280px) and (max-width: 480px) {
+    .hidden-mobile{
+        display: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    img {
+      opacity: .75;
+      transition: opacity .5s ease-in-out;
+    }
+    img:hover {
+      opacity: 1;
+    }
+  }
